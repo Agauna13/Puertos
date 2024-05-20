@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public abstract class Barco {
     //Atributos
@@ -27,23 +26,25 @@ public abstract class Barco {
         return barcoMayor.getMatricula(); //finalmente devolvemos la matricula del barco
     }
 
-    /*public boolean encajaTipo(Pantalan pantalan){
-        return null;
+    public static void cargarBarcosEntrantes(ArrayList<Barco> barcosEntrantes){
+        for(Barco b :barcosEntrantes){
+            Puerto.setBarcosEntrantes(b);
+        }
+    }
+
+    public boolean encajaTipo(Pantalan pantalan){
+        return this.getTipo().equals(pantalan.getTipo());
     }
 
     public float encajaTamaño(Amarre amarre){
+        float tamaño = this.getTamaño() > amarre.getTamañoAmarre() ?
+                this.getTamaño() - amarre.getTamañoAmarre() :
+                amarre.getTamañoAmarre() - this.getTamaño();
 
+        return tamaño;
     }
 
-    }*/
-    public static void cargarBarcosEntrantes(){
-        Barco recreo = new Recreo("Tritón", "2345", 6F, "Permiso Recreativo");
-        Barco comercial = new Comercial("Poseidón", "1234", 80F, "Carga Textil");
-        Puerto.setBarcosEntrantes(recreo);
-        Puerto.setBarcosEntrantes(comercial);
-    }
-
-    private String getMatricula() {
+    public String getMatricula() {
         return matricula;
     }
 
@@ -51,8 +52,13 @@ public abstract class Barco {
         return tamaño;
     }
 
+    @Override
     public String toString() {
-        return null;
+        return "Barco{" +
+                "nombre='" + nombre + '\'' +
+                ", matricula='" + matricula + '\'' +
+                ", tamaño=" + tamaño +
+                '}';
     }
 
     public abstract void mostrar();
