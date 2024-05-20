@@ -7,7 +7,11 @@ public class Main {
         Puerto puerto = new Puerto(listPantalan);
 
         Barco comercial = new Comercial("4567", "Tsunami", 110.0f, "Carga Textil" );
+        Barco recreo = new Recreo("1234", "pepelepue", 90.0f, "Recreo" );
+        Barco c1 = new Comercial("5678", "joaquin", 55.5f, "Pelucas" );
         barcosEntrantes.add(comercial);
+        barcosEntrantes.add(recreo);
+        barcosEntrantes.add(c1);
         Barco.cargarBarcosEntrantes(barcosEntrantes);
 
 

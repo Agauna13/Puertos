@@ -15,30 +15,34 @@ public class Puerto {
     }
 
     public static void buscarAmarre(ArrayList<Barco> barcos, ArrayList<Pantalan> pantalan) {
-        String matricula;
-        Barco barco = null;
-        Pantalan pantalan1 = null;
-        for (Barco b : barcosEntrantes) {
-            matricula = b.mayorTamaño(barcosEntrantes);
-            if (b.getMatricula() == matricula) {
-                barco = b;
+        while(!barcosEntrantes.isEmpty()){String matricula;
+            Barco barco = null;
+            Pantalan pantalan1 = null;
+
+            for (Barco b : barcosEntrantes) {
+                matricula = b.mayorTamaño(barcosEntrantes);
+                if (b.getMatricula() == matricula) {
+                    barco = b;
+                }
+            }
+
+            for (Pantalan p : pantalan) {
+                if (barco.getTipo() == p.getTipo()) {
+                    pantalan1 = p;
+                    break;
+                }
+            }
+
+            for (Amarre amarre : pantalan1.getListaAmarre()) {
+                if (amarre.getTamañoAmarre() >= barco.getTamaño()) {
+                    amarre.setBarco(barco);
+                    amarre.setOcupado(true);
+                    barcosEntrantes.remove(barco);
+                    break;
+                }
             }
         }
 
-        for (Pantalan p : pantalan) {
-            if (barco.getTipo() == p.getTipo()) {
-                pantalan1 = p;
-                break;
-            }
-        }
-
-        for (Amarre amarre : pantalan1.getListaAmarre()) {
-            if (amarre.getTamañoAmarre() >= barco.getTamaño()) {
-                amarre.setBarco(barco);
-                amarre.setOcupado(true);
-                barcosEntrantes.remove(barco);
-            }
-        }
 
 
     }
@@ -61,12 +65,12 @@ public class Puerto {
         listPantalan.add(pantalan2);
         listPantalan.add(pantalan3);
 
-        Amarre amarre1 = new Amarre(100);
-        Amarre amarre2 = new Amarre(100);
-        Amarre amarre3 = new Amarre(60);
-        Amarre amarre4 = new Amarre(120);
-        Amarre amarre5 = new Amarre(10);
-        Amarre amarre6 = new Amarre(10);
+        Amarre amarre1 = new Amarre(300);
+        Amarre amarre2 = new Amarre(200);
+        Amarre amarre3 = new Amarre(100);
+        Amarre amarre4 = new Amarre(75);
+        Amarre amarre5 = new Amarre(50);
+        Amarre amarre6 = new Amarre(25);
 
         pantalan1.añadirAmarre(amarre1);
         pantalan1.añadirAmarre(amarre2);
