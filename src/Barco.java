@@ -7,6 +7,8 @@ public abstract class Barco {
     private float tamaño;
     //private static ArrayList<Barco> barcosEntrantes = new ArrayList();
 
+    public Barco(){
+    }
 
     public Barco(String nombre, String matricula, float tamaño) {
         this.nombre = nombre;
@@ -27,7 +29,7 @@ public abstract class Barco {
     }
 
     public static void cargarBarcosEntrantes(ArrayList<Barco> barcosEntrantes){
-        for(Barco b :barcosEntrantes){
+        for(Barco b : barcosEntrantes){
             Puerto.setBarcosEntrantes(b);
         }
     }

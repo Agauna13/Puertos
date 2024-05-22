@@ -1,6 +1,6 @@
 public class Amarre {
     //Atributos
-    private int id = 0;
+
     private float tamañoAmarre;
     private boolean ocupado;
     Barco barco;
@@ -8,7 +8,6 @@ public class Amarre {
     public Amarre(float tamañoAmarre){
         this.tamañoAmarre = tamañoAmarre;
         ocupado = false;
-        id++;
         Pantalan.añadirAmarre(this);
     }
 
@@ -36,8 +35,7 @@ public class Amarre {
 
     public String toString(){
         return "tamaño Amarre: " + tamañoAmarre +
-                "\n Barco amarrado: " + barco +
-                "\n Id Amarre: " + id;
+                "\n Barco amarrado: " + barco;
     }
 
 

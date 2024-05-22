@@ -2,9 +2,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Pantalan> listPantalan = new ArrayList<Pantalan>();
-        ArrayList<Barco> barcosEntrantes = new ArrayList<Barco>();
-        Puerto puerto = new Puerto(listPantalan);
+        ArrayList<Pantalan> listPantalan = new ArrayList<>();
+        ArrayList<Barco> barcosEntrantes = new ArrayList<>();
 
         Barco comercial = new Comercial("4567", "Tsunami", 110.0f, "Carga Textil" );
         Barco recreo = new Recreo("1234", "pepelepue", 90.0f, "Recreo" );
@@ -13,10 +12,9 @@ public class Main {
         barcosEntrantes.add(recreo);
         barcosEntrantes.add(c1);
         Barco.cargarBarcosEntrantes(barcosEntrantes);
-
-
+        Puerto puerto = new Puerto(listPantalan);
         Puerto.simular(listPantalan);
-        Puerto.buscarAmarre(barcosEntrantes, listPantalan);
+        Puerto.buscarAmarre(listPantalan);
         Puerto.verAmarre(listPantalan);
 
     }
